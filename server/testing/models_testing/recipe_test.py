@@ -59,6 +59,7 @@ class TestRecipe:
                 db.session.commit()
 
     def test_requires_50_plus_char_instructions(self):
+        '''requires each record to have at least 50 characters in instructions.'''
         with app.app_context():
 
             Recipe.query.delete()

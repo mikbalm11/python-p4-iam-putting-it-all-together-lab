@@ -284,7 +284,7 @@ class TestRecipeIndex:
                 assert response_json[i]['minutes_to_complete']
 
     def test_get_route_returns_401_when_not_logged_in(self):
-        
+        '''returns 401 when a user is not logged in at /recipes.'''
         with app.app_context():
             
             Recipe.query.delete()
@@ -303,7 +303,7 @@ class TestRecipeIndex:
             assert response.status_code == 401
 
     def test_creates_recipes_with_201(self):
-        '''returns a list of recipes associated with the logged in user and a 200 status code.'''
+        '''returns a list of recipes associated with the logged in user and a 201 status code.'''
 
         with app.app_context():
             
@@ -350,6 +350,7 @@ class TestRecipeIndex:
             assert response_json['minutes_to_complete'] == new_recipe.minutes_to_complete
 
     def test_returns_422_for_invalid_recipes(self):
+        '''returns 422 for invalid recipes at /recipes'''
         with app.app_context():
             
             Recipe.query.delete()

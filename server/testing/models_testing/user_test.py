@@ -68,7 +68,7 @@ class TestUser:
                 db.session.commit()
 
     def test_requires_unique_username(self):
-        '''requires each record to have a username.'''
+        '''requires each record to have a unique username.'''
 
         with app.app_context():
 
